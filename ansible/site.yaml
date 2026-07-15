@@ -1,0 +1,9 @@
+---
+- name: Create a file on remote server via SSH
+  hosts: debserver
+  tasks:
+    - name: Create an empty text file
+      ansible.builtin.file:
+        path: /home/swami/test.txt
+        state: touch
+        mode: "0644"
