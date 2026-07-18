@@ -1,0 +1,8 @@
+- name: k3s bin check
+  ansible.builtin.stat:
+    path: /usr/local/bin/k3s
+  register: k3s_check
+
+- name: install k3s
+  ansible.builtin.shell: curl -sfL https://get.k3s.io | sh -
+  when: not k3s_check.stat.exists
