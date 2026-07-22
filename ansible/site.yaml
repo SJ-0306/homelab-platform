@@ -10,3 +10,4 @@
     - system_dependencies
     - k3s_setup
     - cluster_resources
+    - helm

@@ -1,0 +1,12 @@
+- name: Add HashiCorp Helm repository
+  kubernetes.core.helm_repository:
+    name: hashicorp
+    repo_url: "https://helm.releases.hashicorp.com"
+
+- name: Deploy HashiCorp Vault chart
+  kubernetes.core.helm:
+    name: vault
+    chart_ref: hashicorp/vault
+    release_namespace: vault
+    create_namespace: true
+    wait: true

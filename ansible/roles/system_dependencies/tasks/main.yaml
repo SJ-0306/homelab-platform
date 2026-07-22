@@ -12,3 +12,9 @@
   ansible.builtin.pip:
     name: kubernetes
     break_system_packages: true
+
+- name: Install helm
+  ansible.builtin.shell: |
+    curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+  args:
+    creates: /usr/local/bin/helm # Prevents re-running if Helm is already installed
